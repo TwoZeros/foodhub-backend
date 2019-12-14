@@ -12,13 +12,13 @@ class order(models.Model):
     createOrder = models.DateField(auto_now_add=True)
     comment= models.CharField(max_length = 500, null=True)
     #deliveryman =models.ForeignKey(User, on_delete=models.CASCADE)
-    timeОfdelivery = models.DateField(auto_now_add=True, null=True)
+    timeОfdelivery = models.DateField(null=True)
     statusDelivery = models.ForeignKey('order.statusDelivery', on_delete=models.CASCADE)
     totalSum = models.FloatField()
     deliveryAdress = models.ForeignKey('order.deliveryAdress', on_delete=models.CASCADE) 
 
     def __str__(self):
-        return "Заказ от " +  self.createOrder
+        return "Заказ от " +  str(self.createOrder)
 
     class Meta:
         verbose_name_plural ="Заказы"
