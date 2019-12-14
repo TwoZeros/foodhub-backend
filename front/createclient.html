@@ -35,7 +35,7 @@
                   
                   <ul id="slide-out" class="sidenav">
                     <li><a href="#!">Рабочий стол</a></li>
-                    <li><a href="">Клиенты</a></li>
+                    <li><a href="сlients.html">Клиенты</a></li>
                     <li><a href="#!">Заказы</a></li>
                     <li><a href="#!">Настройки</a></li>
                       </ul>
@@ -49,6 +49,7 @@
             <br>
                 <div class="container">
                  <h3>Создать клиента</h3>  
+                 <p style="color:red">{{error}}</p>
                     <br>
                    
                     <div class="row">
@@ -60,7 +61,7 @@
                           </div>
 
                           <div class="input-field col s6">
-                            <input v-model="telephone" value="+7" id="telephone" type="text" class="validate">
+                            <input v-model="telephone" value="+7" v-mask="'+7(###)-###-##-##'" id="telephone" type="text" class="validate">
                             <label for="telephone">Телефон</label>
                           </div>
                         </div>
@@ -112,7 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         fio:'',
                         telephone:'',
                         email:'',
-                        status_client:''
+                        status_client:'',
+                        error:''
 
                         
                     },
@@ -124,8 +126,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         email:this.email,
                         status_client:this.status_client
                       }).then(
-                        (response) => { console.log(response) },
-                      	(error) => { console.log(error) })
+                        (response) => { window.location.href = "clients.html" },
+                      	(error) => { this.error = "Упс ошибка" })
                       }
                         }});
               
