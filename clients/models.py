@@ -6,11 +6,11 @@ User = get_user_model()
  
 class Client(models.Model):
     fio = models.CharField(max_length=35)
-    telephone = models.CharField(max_length = 15)
-    email = models.EmailField(max_length=254) 
+    telephone = models.CharField(max_length = 15,null=True)
+    email = models.EmailField(max_length=254, null=True) 
     status_client = models.ForeignKey('Status_client', on_delete=models.CASCADE)
     create_date = models.DateField(auto_now_add=True)
-    descriptions = models.CharField(max_length = 500)
+    descriptions = models.CharField(max_length = 500, null=True)
 
     class Meta:
         verbose_name_plural ="Клиенты"
@@ -18,7 +18,7 @@ class Client(models.Model):
     
 class Status_client(models.Model):
     name = models.CharField(max_length = 35)
-    description = models.CharField(max_length = 500)
+    description = models.CharField(max_length = 500,null=True)
     color = models.IntegerField()
     
     def __str__(self):
