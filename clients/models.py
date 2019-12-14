@@ -10,7 +10,7 @@ class Client(models.Model):
     email = models.EmailField(max_length=254, null=True) 
     status_client = models.ForeignKey('Status_client', on_delete=models.CASCADE)
     create_date = models.DateField(auto_now_add=True)
-    descriptions = models.CharField(max_length = 500, null=True)
+    descriptions = models.CharField(max_length = 500, null=True, blank=True)
 
     class Meta:
         verbose_name_plural ="Клиенты"
