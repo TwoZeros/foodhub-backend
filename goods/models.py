@@ -19,7 +19,7 @@ class categorygGoods(models.Model):
     isAlhogol = models.BooleanField(default=False, verbose_name="Содердит спирт")
 
     def __str__(self):
-        return self.name +"/" + self.category.name
+        return self.name 
 
     class Meta:
         verbose_name_plural ="Категории"
