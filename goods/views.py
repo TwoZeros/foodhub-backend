@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
-from goods.models import goods
+from goods.models import goods, categorygGoods
 from goods.serializers import GoodsListSerializer
 
 # Create your views here.
@@ -10,4 +10,4 @@ class GoodListView(generics.ListAPIView):
 
 class CategoryListView(generics.ListAPIView):
     serializer_class = CategoryListSerializer
-    queryset = goods.objects.all()
+    queryset = categorygGoods.objects.all()
