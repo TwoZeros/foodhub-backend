@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from clients.models import Client
 from goods.models import goods
 from django.contrib.auth.models import User
+User = get_user_model()
 # Create your models here.
 class order(models.Model):
     client=models.ForeignKey( 'clients.Client', on_delete=models.CASCADE, )
