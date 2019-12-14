@@ -2,6 +2,6 @@ from django.contrib import admin
 
 from .models import *
 
-@admin.register(order, statusDelivery, deliveryAdress )
+@admin.register(order, goodsByOrder, statusDelivery, deliveryAdress )
 class AuthorAdmin(admin.ModelAdmin):
     pass

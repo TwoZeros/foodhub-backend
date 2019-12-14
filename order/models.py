@@ -3,16 +3,15 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 from clients.models import Client
-
-User = get_user_model()
+from goods.models import goods
+from django.contrib.auth.models import User
 # Create your models here.
 class order(models.Model):
     client=models.ForeignKey( 'clients.Client', on_delete=models.CASCADE, )
-    operator=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    
+    operator=models.ForeignKey(User, on_delete=models.CASCADE)
     createOrder = models.DateField(auto_now_add=True)
-    Comment= models.CharField(max_length = 500, null=True)
-   # deliveryman =models.ForeignKey( 'settings.User', on_delete=models.CASCADE, null=True )
+    comment= models.CharField(max_length = 500, null=True)
+    #deliveryman =models.ForeignKey(User, on_delete=models.CASCADE)
     timeОfdelivery = models.DateField(auto_now_add=True, null=True)
     statusDelivery = models.ForeignKey('order.statusDelivery', on_delete=models.CASCADE)
     totalSum = models.FloatField()
@@ -51,3 +50,15 @@ class typeAdressDelivery(models.Model):
     
     def __str__(self):
         return self.name
+class goodsByOrder(models.Model):
+    order = models.ForeignKey( 'order.order', on_delete=models.CASCADE, )
+    good = models.ForeignKey( 'goods.goods', on_delete=models.CASCADE, )
+    count = models.FloatField()
+    totalSum = models.FloatField()
+    
+    class Meta:
+        verbose_name_plural ="Товары в заказе"
+        verbose_name = "Товар в заказе"
+    
+    def __str__(self):
+        return self.order + " "+ self.good.name

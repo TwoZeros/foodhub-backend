@@ -16,6 +16,8 @@ class Client(models.Model):
         verbose_name_plural ="Клиенты"
         verbose_name = "Клиент"
     
+    def __str__(self):
+        return self.fio
 class Status_client(models.Model):
     name = models.CharField(max_length = 35)
     description = models.CharField(max_length = 500,null=True)
