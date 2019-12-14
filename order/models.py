@@ -33,7 +33,8 @@ class statusDelivery(models.Model):
     class Meta:
         verbose_name_plural ="Статусы заказов"
         verbose_name = "Статус заказа"
-        
+
+
 class deliveryAdress(models.Model):
     client = models.ForeignKey( 'clients.Client', on_delete=models.CASCADE, )
     adress = models.CharField(max_length = 100)

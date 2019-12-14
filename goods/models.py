@@ -10,13 +10,13 @@ class goods(models.Model):
         return self.name +"/" + self.category.name
 
     class Meta:
-        verbose_name_plural ="Еда"
-        verbose_name = "Еда"
+        verbose_name_plural ="Блюда>"
+        verbose_name = "Блюдо"
 
 class categorygGoods(models.Model):
     name =models.CharField(max_length = 100, null=True)
     isHealth = models.BooleanField(default=False, verbose_name="Здоровая пища")
-    isAlhogol = models.BooleanField(default=False, verbose_name="Содердит спирт")
+    isAlhogol = models.BooleanField(default=False, verbose_name="Содержит спирт")
 
     def __str__(self):
         return self.name 
