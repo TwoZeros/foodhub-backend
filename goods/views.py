@@ -7,3 +7,7 @@ from goods.serializers import GoodsListSerializer
 class GoodListView(generics.ListAPIView):
     serializer_class = GoodsListSerializer
     queryset = goods.objects.all()
+
+class CategoryListView(generics.ListAPIView):
+    serializer_class = CategoryListSerializer
+    queryset = goods.objects.all()
