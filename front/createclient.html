@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <title>Клиенты</title>
+        <style>
+            .red{background: red}
+            .blue{background: blue;}
+            .green{background: green;}
+            .brown{background: brown;}
+        </style>
+    </head>
+    
+    <body>
+        
+          <div id="app">
+            <div class="row">
+
+            <nav style="background-color: #1d278a;">
+                <a href="#" data-target="slide-out"  class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+                <a href="#" class="brand-logo">        
+                    FoodHub</a>
+            </nav>
+                <div class="nav-wrapper">
+                    
+                  
+                  <ul id="slide-out" class="sidenav">
+                    <li><a href="#!">Рабочий стол</a></li>
+                    <li><a href="">Клиенты</a></li>
+                    <li><a href="#!">Заказы</a></li>
+                    <li><a href="#!">Настройки</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  
+
+                </div>
+            
+            </div>
+            <br>
+                <div class="container">
+                 <h3>Создать клиента</h3>  
+                    <br>
+                   
+                    <div class="row">
+                      <form class="col s12">
+                        <div class="row">
+                          <div class="input-field col s6">
+                            <input v-model="fio" id="fio" type="text" class="validate">
+                            <label for="fio">ФИО</label>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <input v-model="telephone" value="+7" id="telephone" type="text" class="validate">
+                            <label for="telephone">Телефон</label>
+                          </div>
+                        </div>
+                       
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s6">
+                            <input v-model="email"  id="email" type="text" class="validate">
+                            <label for="email">Email</label>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <select v-model="status_client"> 
+                              <option value="" disabled selected>Выберите статус</option>
+                              <option value="1">Постоянный</option>
+                              <option value="2">Новый клиент</option>
+                              
+                            </select>
+                            <label>Статус клиента</label>
+                          </div>
+                        
+                        </div>
+                    
+                        <button @click="createClient()" class="waves-effect waves-light btn-small"><i class="material-icons left"></i>Сохранить </button>
+                      
+                    </div>
+                   </form>
+                </div>   
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
+        <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+  Vue.directive('mask', VueMask.VueMaskDirective);
+
+  const url ="http://cybernightdev.pythonanywhere.com/client/create/";
+                new Vue({
+                    el:'#app',
+                    data: {
+                        fio:'',
+                        telephone:'',
+                        email:'',
+                        status_client:''
+
+                        
+                    },
+                    methods: {
+                      createClient() {
+                        axios.post(url, {
+                        fio: this.fio,
+                        telephone: this.telephone,
+                        email:this.email,
+                        status_client:this.status_client
+                      }).then(
+                        (response) => { console.log(response) },
+                      	(error) => { console.log(error) })
+                      }
+                        }});
+              
+                    
+        </script>
+    </body>
+</html>

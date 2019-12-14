@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <title>Клиенты</title>
+        <style>
+            .red{background: red}
+            .blue{background: blue;}
+            .green{background: green;}
+            .brown{background: brown;}
+        </style>
+    </head>
+    
+    <body>
+        
+          <div id="app">
+            <div class="row">
+
+            <nav style="background-color: #1d278a;">
+                <a href="#" data-target="slide-out"  class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+                <a href="#" class="brand-logo">        
+                    FoodHub</a>
+            </navstyle="background-color: #1d278a;">
+                <div class="nav-wrapper">
+                    
+                  
+                  <ul id="slide-out" class="sidenav">
+                    <li><a href="#!">Рабочий стол</a></li>
+                    <li><a href="#!">Клиенты</a></li>
+                    <li><a href="#!">Заказы</a></li>
+                    <li><a href="#!">Настройки</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  
+
+                </div>
+            
+            </div>
+            <br>
+                <div class="container">
+                 <h3>Клиенты</h3>   <a class="waves-effect waves-light btn-small"><i class="material-icons left"></i>Добавить нового клиента </a>
+                    <br>
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>FIO</th>
+                              <th>Phone Number</th>
+                              <th>Email</th>
+                              <th>Status cliet</th>
+                           
+
+ 
+                          </tr>
+                        </thead>
+                
+                        <tbody>
+                        
+                          <tr v-for="info in data1">
+                            <td>{{info.fio}}</td>
+                            <td>{{info.telephone}}</td>
+                            <td>{{info.email}}</td>
+                            <td>{{info.status_client.name}}</td>
+                          </tr>
+                         
+                        </tbody>
+                      </table>
+                </div>   
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
+
+  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+  // var collapsibleElem = document.querySelector('.collapsible');
+  // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+  // Or with jQuery
+
+  const url ="http://cybernightdev.pythonanywhere.com/client/all/";
+                new Vue({
+                    el:'#app',
+                    data: {
+                        data1:''
+                        
+                    },
+                mounted() {
+                    axios.get(url).then(response => {
+                        this.data1= response.data
+                    })
+                }})
+        </script>
+    </body>
+</html>
