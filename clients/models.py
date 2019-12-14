@@ -6,7 +6,7 @@ User = get_user_model()
  
 class Client(models.Model):
     fio = models.CharField(max_length=35)
-    telephone = models.CharField(max_length = 15,null=True)
+    telephone = models.CharField(max_length = 30,null=True)
     email = models.EmailField(max_length=254, null=True) 
     status_client = models.ForeignKey('Status_client', on_delete=models.CASCADE)
     create_date = models.DateField(auto_now_add=True)
