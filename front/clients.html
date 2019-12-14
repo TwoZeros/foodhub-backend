@@ -36,7 +36,7 @@
                   <ul id="slide-out" class="sidenav">
                     <li><a href="#!">Рабочий стол</a></li>
                     <li><a href="clients.html">Клиенты</a></li>
-                    <li><a href="#!">Заказы</a></li>
+                    <li><a href="orders.html">Заказы</a></li>
                     <li><a href="#!">Настройки</a></li>
                       </ul>
                     </li>
@@ -55,9 +55,9 @@
                         <thead>
                           <tr>
                               <th>FIO</th>
-                              <th>Phone Number</th>
-                              <th>Email</th>
-                              <th>Status cliet</th>
+                              <th>Номер телефона</th>
+                              <th>Почта</th>
+                              <th>Статус клиента</th>
                            
 
  
@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 mounted() {
                     axios.get(url).then(response => {
                         this.data1= response.data
+                    })}
                     })
-                }})
         </script>
     </body>
 </html>

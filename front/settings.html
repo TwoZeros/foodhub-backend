@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <title>Клиенты</title>
+        <style>
+            .red{background: red}
+            .blue{background: blue;}
+            .green{background: green;}
+            .brown{background: brown;}
+        </style>
+    </head>
+    
+    <body>
+        
+          <div id="app">
+            <div class="row">
+
+            <nav style="background-color: #1d278a;">
+                <a href="#" data-target="slide-out"  class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+                <a href="#" class="brand-logo">        
+                    FoodHub</a>
+            </nav style="background-color: #1d278a;">
+                <div class="nav-wrapper">
+                    
+                  
+                  <ul id="slide-out" class="sidenav">
+                    <li><a href="#!">Рабочий стол</a></li>
+                    <li><a href="clients.html">Клиенты</a></li>
+                    <li><a href="orders.html">Заказы</a></li>
+                    <li><a href="settings.html">Настройки</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  
+
+                </div>
+            
+            </div>
+            <br>
+                <div class="container">
+                 <h3>Настройки</h3> 
+    
+                    <br>
+                   
+
+                    <div class="row">
+                      <div class="col s12">
+                        <ul class="tabs">
+                       
+                          <li class="tab col s3"><a class="active" href="#test2">Меню</a></li>
+                          <li class="tab col s3 "><a href="#test3">Категории</a></li>
+                        </ul>
+                      </div>
+                     
+                      <div id="test2" class="col s12">
+
+                        <a class="waves-effect waves-light btn-small" href="createclient.html"><i class="material-icons left"></i>Добавить блюдо </a>
+
+                        <table>
+                          <thead>
+                            <tr>
+                                <th>Наименование</th>
+                                <th>Категория</th>
+                                <th>Стоимость</th>
+                               
+                             
+  
+   
+                            </tr>
+                          </thead>
+                  
+                          <tbody>
+
+                            <tr v-for="info in goods">
+                              <td>{{info.name}}</td>
+                              <td>{{info.category}}</td>
+                              <td>{{info.price}}</td>
+                         
+                            </tr>
+                           
+                          </tbody>
+                        </table>
+                        }</div>
+                      <div id="test3" class="col s12">Test 3</div>
+                      </div>
+                              
+                </div>   
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+    var el =document.querySelectorAll('.tabs');
+    var instanceTab = M.Tabs.init(el);
+  });
+  
+  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+  // var collapsibleElem = document.querySelector('.collapsible');
+  // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+  // Or with jQuery
+  axios.defaults.headers.common['Authorization'] = `Token ec8540ebb96526b77f7ec6dea9688da56ac14d27`;
+  const urlGoods ="http://cybernightdev.pythonanywhere.com/goods/all";
+                new Vue({
+                    el:'#app',
+                    data: {
+                        goods:''
+                        
+                    },
+                mounted() {
+                    axios.get(urlGoods).then(response => {
+                        this.goods= response.data
+                    })
+                }})
+        </script>
+    </body>
+</html>

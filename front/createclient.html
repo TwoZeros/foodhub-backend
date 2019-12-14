@@ -37,7 +37,7 @@
                     <li><a href="#!">Рабочий стол</a></li>
                     <li><a href="сlients.html">Клиенты</a></li>
                     <li><a href="#!">Заказы</a></li>
-                    <li><a href="#!">Настройки</a></li>
+                    <li><a href="settings.html">Настройки</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -88,7 +88,7 @@
                         <button @click="createClient()" class="waves-effect waves-light btn-small"><i class="material-icons left"></i>Сохранить </button>
                       
                     </div>
-                   </form>
+                  </div>
                 </div>   
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         email:this.email,
                         status_client:this.status_client
                       }).then(
-                        (response) => { window.location.href = "clients.html" },
+                        (response) => { window.location.href = "сlients.html" },
                       	(error) => { this.error = "Упс ошибка" })
                       }
                         }});
