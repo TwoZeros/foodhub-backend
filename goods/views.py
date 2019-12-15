@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
 from goods.models import goods, categorygGoods
-from goods.serializers import GoodsListSerializer
+from goods.serializers import GoodsListSerializer, CategoryListSerializer
 
 # Create your views here.
 class GoodListView(generics.ListAPIView):
