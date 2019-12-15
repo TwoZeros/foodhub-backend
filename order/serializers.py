@@ -40,7 +40,8 @@ class OrdersListSerializer(serializers.ModelSerializer):
 
 class GoodsByOrderSerializer(serializers.ModelSerializer):
     good = GoodsListSerializer(required=True)
+    order = OrdersListSerializer(required=True)
     class Meta:
         model = goodsByOrder
-        fields = ['good', 'count', 'totalSum']
+        fields = ['order','good', 'count', 'totalSum']
 
