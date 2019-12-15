@@ -48,15 +48,17 @@
             </div>
             <br>
                 <div class="container">
-                 <h3>Клиенты</h3> 
-    <a class="waves-effect waves-light btn-small" href="createclient.html"><i class="material-icons left"></i>Добавить нового клиента </a>
+                 <h3>Заказы</h3> 
+    <a class="waves-effect waves-light btn-small" href="#"><i class="material-icons left"></i>Добавить заказ </a>
                     <br>
                     <table>
                         <thead>
                           <tr>
+                              <th>Наименование</th>
                               <th>Клиент</th>
                               <th>Оператор</th>
                               <th>Адрес доставки</th>
+                              <th>Статус заказа</th>
                               <th>Сумма</th>
                            
 
@@ -67,10 +69,12 @@
                         <tbody>
                         
                           <tr v-for="info in data1">
+                            <td><a href="#">Заказ {{info.id}} от {{info.createOrder}}</a></td>
                             <td>{{info.client.fio}}</td>
                             <td>{{info.operator.username}}</td>
-                            <td>{{info.deliveryAdress.address}}</td>
-                            <td>{{info.status_client.name}}</td>
+                            <td>{{info.deliveryAdress.adress}}</td>
+                            <td>{{info.statusDelivery.name}}</td>
+                            <td>{{info.totalSum}}</td>
                           </tr>
                          
                         </tbody>
