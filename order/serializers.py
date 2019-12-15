@@ -33,4 +33,4 @@ class OrdersListSerializer(serializers.ModelSerializer):
     statusDelivery = StatusDeliverySerializer(required=True)
     class Meta:
         model = order
-        fields = ['client', 'operator', 'createOrder', 'statusDelivery', 'deliveryAdress']
+        fields = ['id','client', 'operator', 'createOrder', 'statusDelivery', 'deliveryAdress','totalSum']

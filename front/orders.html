@@ -54,9 +54,9 @@
                     <table>
                         <thead>
                           <tr>
-                              <th>Заказ</th>
                               <th>Клиент</th>
-                              <th>Статус заказа</th>
+                              <th>Оператор</th>
+                              <th>Адрес доставки</th>
                               <th>Сумма</th>
                            
 
@@ -67,9 +67,9 @@
                         <tbody>
                         
                           <tr v-for="info in data1">
-                            <td>{{info.fio}}</td>
-                            <td>{{info.telephone}}</td>
-                            <td>{{info.email}}</td>
+                            <td>{{info.client.fio}}</td>
+                            <td>{{info.operator.username}}</td>
+                            <td>{{info.deliveryAdress.address}}</td>
                             <td>{{info.status_client.name}}</td>
                           </tr>
                          
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Or with jQuery
 
-  const url ="http://cybernightdev.pythonanywhere.com/client/all/";
+  const url ="http://cybernightdev.pythonanywhere.com/order/all/";
                 new Vue({
                     el:'#app',
                     data: {
