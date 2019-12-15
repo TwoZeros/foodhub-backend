@@ -63,4 +63,4 @@ class goodsByOrder(models.Model):
         verbose_name = "Товар в заказе"
     
     def __str__(self):
-        return self.order + " "+ self.good.name
+        return str(self.order) + " "+ self.good.name

@@ -1,6 +1,8 @@
 from rest_framework import serializers
-from order.models import order, deliveryAdress, statusDelivery
+from order.models import order, deliveryAdress, statusDelivery, goodsByOrder
 from clients.models import Client
+from goods.serializers import GoodsListSerializer
+from goods.models import goods, categorygGoods
 from django.contrib.auth.models import User
 
 class ClientFioSerializer(serializers.ModelSerializer):
@@ -34,3 +36,11 @@ class OrdersListSerializer(serializers.ModelSerializer):
     class Meta:
         model = order
         fields = ['id','client', 'operator', 'createOrder', 'statusDelivery', 'deliveryAdress','totalSum']
+
+
+class GoodsByOrderSerializer(serializers.ModelSerializer):
+    good = GoodsListSerializer(required=True)
+    class Meta:
+        model = goodsByOrder
+        fields = ['good', 'count', 'totalSum']
+
