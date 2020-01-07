@@ -101,9 +101,9 @@ WSGI_APPLICATION = 'blacklist.wsgi.application'
 DATABASES = {
    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ddq740o9ras1r6',
-        'USER': 'grygfigjtffbdu',
-        'PASSWORD': '703541530d1e0579d3531daa95e62874c89684fb4f3180c99c5d3569ee1e4d4c',
+        'NAME': 'd2n50lfif69r2t',
+        'USER': 'byjdihbqgljjnw',
+        'PASSWORD': '9e4a7f4eb5813d2eaef1ffa3cf93219815c81b360e1b021176e23ec934c2fc82',
         'HOST': 'ec2-54-217-206-65.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
