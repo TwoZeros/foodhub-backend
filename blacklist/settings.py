@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1',
 				'localhost',
-                '.pythonanywhere.com']
+                '.pythonanywhere.com'
+                '.herokuapp.com']
 
 # Application definition
 
@@ -97,9 +98,13 @@ WSGI_APPLICATION = 'blacklist.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+   'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ddq740o9ras1r6',
+        'USER': 'grygfigjtffbdu',
+        'PASSWORD': '703541530d1e0579d3531daa95e62874c89684fb4f3180c99c5d3569ee1e4d4c',
+        'HOST': 'ec2-54-217-206-65.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
