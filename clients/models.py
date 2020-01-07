@@ -7,7 +7,7 @@ User = get_user_model()
 class Client(models.Model):
     fio = models.CharField(max_length=35)
     telephone = models.CharField(max_length = 30,null=True)
-    email = models.EmailField(max_length=254, null=True) 
+    email = models.EmailField(max_length=254, null=True, blank=True) 
     status_client = models.ForeignKey('Status_client', on_delete=models.CASCADE)
     create_date = models.DateField(auto_now_add=True)
     descriptions = models.CharField(max_length = 500, null=True, blank=True)
@@ -20,8 +20,8 @@ class Client(models.Model):
         return self.fio
 class Status_client(models.Model):
     name = models.CharField(max_length = 35)
-    description = models.CharField(max_length = 500,null=True)
-    color = models.IntegerField()
+    description = models.CharField(max_length = 500,null=True, blank=True)
+    color = models.IntegerField(null=True, blank=True)
     
     def __str__(self):
         return self.name
