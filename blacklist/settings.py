@@ -150,20 +150,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media') 
-MEDIA_URL = '/media/' # URL для медии в шаблонах
- 
- 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static') # пустая папка, сюда будет собирать статику collectstatic
- 
-STATIC_URL = '/static/' # URL для шаблонов
- 
- 
-STATICFILES_DIRS = [
-    '/static',
-]
+STATIC_URL = '/static/' 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
+STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'blacklist', 'static'), ) 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
