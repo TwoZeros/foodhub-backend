@@ -26,6 +26,7 @@ SECRET_KEY = 'bggy1n1&k=y@farf=^=c*_9=q9r4gx^_hjv(5f5$a16qa0q!-q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
 ALLOWED_HOSTS = ['127.0.0.1',
 				'localhost',
                 '.pythonanywhere.com',
@@ -47,9 +48,12 @@ INSTALLED_APPS = [
     'djoser',
     'order',
     'corsheaders',
-    'goods'
+    'goods',
+    'users'
 
 ]
+
+AUTH_USER_MODEL = 'users.User'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
